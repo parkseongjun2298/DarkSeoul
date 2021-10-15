@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/.idea.DarkSeoul.iml
+/modules.xml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../:\Users\jaewo\OneDrive\바탕 화면\까마귀\DarkSeoul\DarkSeoul\.idea\.idea.DarkSeoul\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
