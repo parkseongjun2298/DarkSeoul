@@ -11,6 +11,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     private CharacterController characterController;
     
+    private float rotateSpeedX = 3;
+    
+    private float eulerAngleY;
+    
+    private float limitMinX = -80;
+    private float limitMaxX = 50;
+    
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -29,5 +36,17 @@ public class PlayerMovement : MonoBehaviour
         Vector3 rotDirection = cameraTransform.rotation * direction;
         
         moveDirection = new Vector3(rotDirection.x, moveDirection.y, rotDirection.z);
+    }
+    
+    public void RotateTo(float mouseX)
+    {
+        eulerAngleY += mouseX * rotateSpeedX;
+
+        transform.rotation = Quaternion.Euler(0, eulerAngleY, 0);
+    }
+
+    public void ChangeMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
     }
 }

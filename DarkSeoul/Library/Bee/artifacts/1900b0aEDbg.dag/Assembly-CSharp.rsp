@@ -322,6 +322,8 @@
 "Assets/02_Scripts/Character/PlayerController.cs"
 "Assets/02_Scripts/Character/PlayerMovement.cs"
 "Assets/02_Scripts/Manager/GameManager.cs"
+"Assets/99_Assets/Destroyed_city_FREE/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs"
+"Assets/99_Assets/Destroyed_city_FREE/Standard Assets/Water (Pro Only)/Sources/Scripts/Water.cs"
 -langversion:8.0
 
 /deterministic
