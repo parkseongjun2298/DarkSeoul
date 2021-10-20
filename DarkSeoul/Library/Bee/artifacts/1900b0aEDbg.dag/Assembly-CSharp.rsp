@@ -319,8 +319,9 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VSSettingsProvider.ref.dll"
 "Assets/02_Scripts/CameraController.cs"
-"Assets/02_Scripts/PlayerController.cs"
-"Assets/02_Scripts/PlayerMovement.cs"
+"Assets/02_Scripts/Character/PlayerController.cs"
+"Assets/02_Scripts/Character/PlayerMovement.cs"
+"Assets/02_Scripts/Manager/GameManager.cs"
 -langversion:8.0
 
 /deterministic
