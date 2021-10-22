@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("isAttack", true);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         
         animator.SetBool("isAttack", false);
         
