@@ -17,11 +17,8 @@ public class PlayerController : MonoBehaviour
     {
         KeyInput();
         MouseInput();
+        Attack();
         
-        if (Input.GetMouseButton(0))
-        {
-            StartCoroutine("Attack");
-        }
         
     }
 
@@ -58,15 +55,12 @@ public class PlayerController : MonoBehaviour
         playerMovement.RotateTo(mouseX);
     }
 
-    IEnumerator Attack()
+    void Attack()
     {
-        animator.SetBool("isAttack", true);
-
-        yield return new WaitForSeconds(1f);
-        
-        animator.SetBool("isAttack", false);
-        
-        yield return null;
+        if (Input.GetMouseButton(0))
+        {
+            animator.SetTrigger("doAttack");
+        }
     }
 
 }
