@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
         KeyInput();
         MouseInput();
         Attack();
-        
+        ItemKey();
+
     }
 
     void KeyInput()
@@ -92,6 +93,15 @@ public class PlayerController : MonoBehaviour
     void SwordColliderOff()
     {
         swordCollider.gameObject.SetActive(false);
+    }
+
+    void ItemKey()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && potionCount > 0)
+        {
+            potionCount -= 1;
+            playerHealth = 100.0f;
+        }
     }
 
     private void OnTriggerEnter(Collider other)

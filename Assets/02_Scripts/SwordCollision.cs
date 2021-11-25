@@ -11,8 +11,16 @@ public class SwordCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("칼 몬스터 충돌");
-            other.GetComponent<Enemy>().enemyHealth -= playerController.playerDamage;
+            Enemy enemy = other.GetComponent<Enemy>();
+            if(enemy.enemyHealth > 0)
+                enemy.enemyHealth -= playerController.playerDamage;
+            
+            if (enemy.enemyHealth <= 0 && !enemy.isDead)
+            {
+                enemy.animator.SetTrigger("doDead");
+                enemy.isDead = true;
+                enemy.EnemyDead();
+            }
         }
     }
 }

@@ -6,15 +6,20 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public float enemyHealth = 100.0f;
+    [SerializeField] public float enemyDamage = 5.0f;
+
+    public bool isDead = false;
     
-    
-    private Animator animator;
+    public Animator animator;
     public Transform _player;
     public float speed;
     public Vector3 spawn;
 
     public float atkCooltime = 4;
-    public float atkDelay; 
+    public float atkDelay;
+
+    public BoxCollider leftFist;
+    public BoxCollider rightFist;
     
     void Start()
     {
@@ -27,11 +32,21 @@ public class Enemy : MonoBehaviour
     {
         if (atkDelay >= 0)
             atkDelay -= Time.deltaTime;
+        
     }
 
     public void RotateEnemy(Vector3 _target)
     {
         transform.forward = _target - transform.position;
     }
-    
+
+    public void EnemyDead()
+    {
+        Invoke("DeleteEnemy", 3.0f);
+    }
+
+    private void DeleteEnemy()
+    {
+        Destroy(this.gameObject);
+    }
 }
