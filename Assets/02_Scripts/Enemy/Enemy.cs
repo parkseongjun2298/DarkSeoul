@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] public float enemyHealth = 100.0f;
+    
+    
     private Animator animator;
     public Transform _player;
     public float speed;

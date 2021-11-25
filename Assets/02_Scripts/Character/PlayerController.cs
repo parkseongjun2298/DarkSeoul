@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,12 +6,20 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] public float playerHealth = 100.0f;
+    [SerializeField] public int playerMoney = 0;
+    [SerializeField] public int potionCount = 0;
+
+    [SerializeField] public float playerDamage = 10.0f;
+    
     [SerializeField] private float moveSpeed = 5.0f;
     
     [SerializeField] private Transform characterBody;
     [SerializeField] private Transform cameraArm;
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterController characterController;
+
+    [SerializeField] public BoxCollider swordCollider;
     
     void Update()
     {
@@ -75,7 +84,23 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             animator.SetTrigger("doAttack");
+            swordCollider.gameObject.SetActive(true);
+            Invoke("SwordColliderOff", 1.0f);
         }
     }
 
+    void SwordColliderOff()
+    {
+        swordCollider.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Potion")
+        {
+            Destroy(other.gameObject);
+            potionCount += 1;
+        }
+        
+    }
 }
