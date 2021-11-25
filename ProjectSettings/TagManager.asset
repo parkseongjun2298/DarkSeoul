@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Potion
   - Enemy
+  - Exit
   layers:
   - Default
   - TransparentFX
