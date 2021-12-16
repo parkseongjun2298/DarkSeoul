@@ -6,6 +6,7 @@ using UnityEngine;
 public class FistCollision : MonoBehaviour
 {
     private Enemy enemy;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -17,8 +18,10 @@ public class FistCollision : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             PlayerController player = other.GetComponent<PlayerController>();
-            Debug.Log("맞음");
+            //Debug.Log("맞음");
 
+            audioSource.Play();
+            
             player.playerHealth -= enemy.enemyDamage;
         }
     }

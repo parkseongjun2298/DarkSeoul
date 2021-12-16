@@ -10,11 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public int playerMoney = 0;
     [SerializeField] public int potionCount = 0;
 
+    [SerializeField] public AudioClip attackSound;
+
+    public AudioSource audioSource;
+    
     [SerializeField] public float playerDamage = 10.0f;
     
     [SerializeField] private float moveSpeed = 5.0f;
 
-    [SerializeField] private float SkillCooltime = 5.0f;
+    [SerializeField] private float SkillCooltime = 2.0f;
     [SerializeField] private float CurCooltime = 0.0f;
     [SerializeField] private bool isSkiilOn = true;
 
@@ -98,6 +102,7 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("doAttack");
             swordCollider.gameObject.SetActive(true);
             Invoke("SwordColliderOff", 1.0f);
+            audioSource.PlayOneShot(attackSound);
         }
     }
 
@@ -105,7 +110,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && isSkiilOn)
         {
-
+            animator.SetTrigger("doAttack");
             go = Instantiate(knife, new Vector3(transform.position.x, transform.position.y + 1.4f, transform.position.z), Quaternion.identity);
             
             isSkiilOn = false;
@@ -113,8 +118,8 @@ public class PlayerController : MonoBehaviour
             playerRay = characterBody.transform.forward;
             CurCooltime = 0.0f;
 
-
-
+            
+            
 
         }
     }
@@ -130,7 +135,6 @@ public class PlayerController : MonoBehaviour
             if (SkillCooltime <= CurCooltime)
             {
                 isSkiilOn = true;
-                //.SetActive(false);
                 Destroy(go);
             }
         }
