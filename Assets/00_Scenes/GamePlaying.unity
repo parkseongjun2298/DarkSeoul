@@ -1365,6 +1365,7 @@ GameObject:
   - component: {fileID: 951144178}
   - component: {fileID: 951144177}
   - component: {fileID: 951144176}
+  - component: {fileID: 951144180}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Exit
@@ -1380,7 +1381,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951144175}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.8836482, y: 1.2100002, z: 1.8836484}
@@ -6173,6 +6174,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951144180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951144175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66954cc4aadfb004a890d7b213fcf6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &963593249 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2703985788003715493, guid: 88506bb78fcadb545927f51eeb7bc0f5, type: 3}
@@ -19830,6 +19843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 49682384253341306, guid: f466887a03b421245ad4f294268cd71b, type: 3}
+      propertyPath: knife
+      value: 
+      objectReference: {fileID: 4836376968045347568, guid: 6fe1c3dcdda54a44ca06ffb655f72808, type: 3}
     - target: {fileID: 8909454248946288654, guid: f466887a03b421245ad4f294268cd71b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.05385208

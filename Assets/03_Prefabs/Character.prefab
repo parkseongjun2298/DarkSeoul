@@ -51,6 +51,11 @@ MonoBehaviour:
   potionCount: 0
   playerDamage: 20
   moveSpeed: 5
+  SkillCooltime: 5
+  CurCooltime: 0
+  isSkiilOn: 1
+  playerRay: {x: 0, y: 0, z: 0}
+  knife: {fileID: 0}
   characterBody: {fileID: 8948093986524851601}
   cameraArm: {fileID: 49682385078360355}
   animator: {fileID: 3084447629403404267}

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public void StartGame()
     {
+        Cursor.visible = false;
         SceneManager.LoadScene("GamePlaying");
     }
 

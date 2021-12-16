@@ -13,6 +13,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float playerDamage = 10.0f;
     
     [SerializeField] private float moveSpeed = 5.0f;
+
+    [SerializeField] private float SkillCooltime = 5.0f;
+    [SerializeField] private float CurCooltime = 0.0f;
+    [SerializeField] private bool isSkiilOn = true;
+
+    [SerializeField] private Vector3 playerRay;
+
+    [SerializeField] private GameObject knife;
+    private GameObject go;
     
     [SerializeField] private Transform characterBody;
     [SerializeField] private Transform cameraArm;
@@ -27,6 +36,8 @@ public class PlayerController : MonoBehaviour
         MouseInput();
         Attack();
         ItemKey();
+        Skill();
+        KnifeUpdate();
 
     }
 
@@ -82,11 +93,46 @@ public class PlayerController : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("doAttack");
             swordCollider.gameObject.SetActive(true);
             Invoke("SwordColliderOff", 1.0f);
+        }
+    }
+
+    void Skill()
+    {
+        if (Input.GetMouseButtonDown(1) && isSkiilOn)
+        {
+
+            go = Instantiate(knife, new Vector3(transform.position.x, transform.position.y + 1.4f, transform.position.z), Quaternion.identity);
+            
+            isSkiilOn = false;
+            
+            playerRay = characterBody.transform.forward;
+            CurCooltime = 0.0f;
+
+
+
+
+        }
+    }
+
+    void KnifeUpdate()
+    {
+        if (!isSkiilOn)
+        {
+            go.transform.Translate(playerRay.normalized * Time.deltaTime * 20.0f);
+
+            CurCooltime += Time.deltaTime;
+
+            if (SkillCooltime <= CurCooltime)
+            {
+                isSkiilOn = true;
+                //.SetActive(false);
+                Destroy(go);
+            }
         }
     }
 
